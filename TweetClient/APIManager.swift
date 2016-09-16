@@ -10,7 +10,7 @@ import Foundation
 
 class APIManager
 {
-    static let ds = APIManager()
+    static let sharedInstance = APIManager()
     
     
     

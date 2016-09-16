@@ -10,8 +10,24 @@ import Foundation
 
 class User
 {
+    private var _username: String!
+    private var _imgURL: String!
     
+    var username : String!
+    {
+        return _username
+    }
     
+    var imgURL : String!
+    {
+        return _imgURL
+    }
+    
+    init(username: String, url: String)
+    {
+        self._username = username
+        self._imgURL = imgURL
+    }
     
     
 }

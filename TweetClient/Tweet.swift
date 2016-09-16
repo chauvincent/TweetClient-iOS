@@ -13,11 +13,13 @@ class Tweet
     private var _text: String!
     private var _uid: String!
     
-    var text: String {
+    var text: String
+    {
         return self._text
     }
     
-    var uid: String {
+    var uid: String
+    {
         return self._uid
     }
     
@@ -26,5 +28,4 @@ class Tweet
         self._text = text
         self._uid = uid
     }
-
 }
