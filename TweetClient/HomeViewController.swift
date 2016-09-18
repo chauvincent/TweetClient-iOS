@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController
 {
+    @IBOutlet weak var feedTableView: UITableView!
     var allTweets: [Tweet]? {
         didSet {
             // Reload table view data
@@ -20,6 +21,7 @@ class HomeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        setupView()
         updateWithTestJSON()
     }
     
@@ -32,6 +34,11 @@ class HomeViewController: UIViewController
     {
         super.didReceiveMemoryWarning()
     }
+    func setupView()
+    {
+        self.navigationItem.title = "Home"
+    }
+    
     
     func updateWithTestJSON()
     {

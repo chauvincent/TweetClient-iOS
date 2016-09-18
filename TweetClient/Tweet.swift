@@ -12,6 +12,7 @@ class Tweet
 {
     private var _text: String!
     private var _uid: String!
+    private var _user: User!
     
     var text: String
     {
@@ -23,9 +24,15 @@ class Tweet
         return self._uid
     }
     
-    init(text: String, uid: String)
+    var user: User
+    {
+        return _user
+    }
+    
+    init(text: String, uid: String, user: User)
     {
         self._text = text
         self._uid = uid
+        self._user = user
     }
 }

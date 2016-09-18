@@ -82,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				7522E9D41D8BA060000ED46F /* JSONParserUtil.swift */,
-				7522E9D81D8CA88D000ED46F /* Constants.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -137,6 +136,7 @@
 			children = (
 				75725F531D88C727001F3E47 /* AppDelegate.swift */,
 				75725F621D88C727001F3E47 /* Info.plist */,
+				7522E9D81D8CA88D000ED46F /* Constants.swift */,
 			);
 			name = "App Global";
 			sourceTree = "<group>";

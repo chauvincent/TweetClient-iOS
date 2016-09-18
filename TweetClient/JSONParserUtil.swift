@@ -30,10 +30,7 @@ class JSONParserUtil
             
             for tweetDict in jsonData! {
                 
-                let tweet = try parseTweet(tweetDict: tweetDict)
-                tweets.append(tweet!)
-                
-                let user = try parseUser(tweetDict: tweetDict)
+                tweets.append(try parseTweet(tweetDict: tweetDict)!)
                 
             }
             
@@ -65,7 +62,6 @@ class JSONParserUtil
         return (jsonData != nil) ? jsonData : nil
     }
     
-    /*  ParseJSON Helper: Tweet Information */
     class func parseTweet(tweetDict: [String : AnyObject]) throws -> Tweet?
     {
         guard let uid = tweetDict[kTweetUID] as? String
@@ -74,12 +70,6 @@ class JSONParserUtil
         guard let text = tweetDict[kTweetText] as? String
             else {  throw ParserError.invalidText }
         
-        return Tweet(text: text, uid: uid)
-    }
-    
-    /*  ParseJSON Helper: User Information */
-    class func parseUser(tweetDict: [String : AnyObject]) throws -> User?
-    {
         guard let userName = tweetDict[kTweetUser]?[kTweetUserName] as? String
             else { throw ParserError.invalidUsername }
         
@@ -89,6 +79,10 @@ class JSONParserUtil
         guard let location = tweetDict[kTweetUser]?[kTweetUserLocation] as? String
             else { throw ParserError.invalidUserLocation }
         
-        return User(username: userName, url: imgUrl, location: location)
+        let userInfo = User(username: userName, url: imgUrl, location: location)
+        
+        return Tweet(text: text, uid: uid, user: userInfo)
     }
+    
+
 }
