@@ -11,17 +11,18 @@ import UIKit
 class JSONParserUtil
 {
     /*  Parser Error Types */
-    enum ParserError: Error {
+    enum ParserError: Error
+    {
         case invalidUID
         case invalidText
     }
     
     /*  Parse JSON from an NSData object */
-    class func parseJSON(data: NSData) -> [Tweet]?
+    class func parseJSON(data: NSData, completionHandler: @escaping (_ success: Bool, _ allTweets:[Tweet]?) -> Void)
     {
         var tweets: [Tweet] = []
+        
         do {
-
             let jsonData = try JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: AnyObject]]
             
             for tweetDict in jsonData! {
@@ -39,17 +40,15 @@ class JSONParserUtil
                 tweets.append(tweet)
             }
             
-            return tweets;
-
+            completionHandler(true, tweets)
+            
         } catch {
             print("error serializing JSON: \(error)")
         }
-        
-        
-        return nil
+        completionHandler(false, nil)
     }
 
-    /*  Load Test JSON Data to parse */
+    /*  Load Test JSON Data to parse  */
     class func loadTestJSON() -> NSData?
     {
         var jsonData: NSData?
@@ -63,12 +62,7 @@ class JSONParserUtil
                 print(error.localizedDescription)
             }
         }
-        
-        if jsonData != nil
-        {
-            return jsonData!
-        }
-        
-        return nil
+    
+        return (jsonData != nil) ? jsonData : nil
     }
 }

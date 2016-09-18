@@ -11,6 +11,7 @@
 		7522E9D11D8B9F9A000ED46F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7522E9D01D8B9F9A000ED46F /* User.swift */; };
 		7522E9D51D8BA060000ED46F /* JSONParserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7522E9D41D8BA060000ED46F /* JSONParserUtil.swift */; };
 		7522E9D71D8BA10A000ED46F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7522E9D61D8BA10A000ED46F /* APIManager.swift */; };
+		7522E9D91D8CA88D000ED46F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7522E9D81D8CA88D000ED46F /* Constants.swift */; };
 		75725F541D88C727001F3E47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75725F531D88C727001F3E47 /* AppDelegate.swift */; };
 		75725F591D88C727001F3E47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75725F571D88C727001F3E47 /* Main.storyboard */; };
 		75725F5C1D88C727001F3E47 /* TweetClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75725F5A1D88C727001F3E47 /* TweetClient.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 		7522E9D01D8B9F9A000ED46F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7522E9D41D8BA060000ED46F /* JSONParserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParserUtil.swift; sourceTree = "<group>"; };
 		7522E9D61D8BA10A000ED46F /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		7522E9D81D8CA88D000ED46F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		75725F501D88C727001F3E47 /* TweetClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TweetClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75725F531D88C727001F3E47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75725F581D88C727001F3E47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				7522E9D41D8BA060000ED46F /* JSONParserUtil.swift */,
+				7522E9D81D8CA88D000ED46F /* Constants.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				7522E9D11D8B9F9A000ED46F /* User.swift in Sources */,
 				7522E9CF1D8B9F8E000ED46F /* Tweet.swift in Sources */,
 				7522E9D71D8BA10A000ED46F /* APIManager.swift in Sources */,
+				7522E9D91D8CA88D000ED46F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
