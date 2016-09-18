@@ -8,19 +8,22 @@
 
 import UIKit
 
-class TweetTableViewCell: UITableViewCell {
+class TweetTableViewCell: UITableViewCell
+{
 
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userTextLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
     
-    override func awakeFromNib() {
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         self.userTextLabel.text = "testing"
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

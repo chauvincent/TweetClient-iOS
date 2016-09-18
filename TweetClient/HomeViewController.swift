@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Accounts
+import Social
 
 class HomeViewController: UIViewController
 {
@@ -25,6 +27,7 @@ class HomeViewController: UIViewController
         super.viewDidLoad()
         setupView()
         updateWithTestJSON()
+        APIManager.sharedInstance.loginFromSocial()
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -82,6 +85,4 @@ extension TableViewDelegate: UITableViewDelegate
     {
         
     }
-    
-
 }

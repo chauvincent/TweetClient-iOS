@@ -61,6 +61,7 @@ class JSONParserUtil
         return (jsonData != nil) ? jsonData : nil
     }
     
+    /*  Parse into Tweet and User Model Helper  */
     class func parseTweet(tweetDict: [String : AnyObject]) throws -> Tweet?
     {
         guard let uid = tweetDict[kTweetUID] as? String
