@@ -27,10 +27,10 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K7T-lp-sV5" id="EQP-YI-Phr">
-                                            <frame key="frameInset" width="375" height="95"/>
+                                            <frame key="frameInset" width="375" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qpc-xP-jkC">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qpc-xP-jkC" customClass="CircleImageView" customModule="TweetClient" customModuleProvider="target">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="bpS-57-1X4"/>
                                                         <constraint firstAttribute="height" constant="60" id="gQr-53-Htl"/>
@@ -74,7 +74,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="userImageView" destination="Qpc-xP-jkC" id="9Os-14-rvX"/>
+                                            <outlet property="userImageView" destination="Qpc-xP-jkC" id="3QQ-Bk-awj"/>
                                             <outlet property="userLocationLabel" destination="Sln-d4-K8Z" id="2Rv-hW-zqM"/>
                                             <outlet property="userTextLabel" destination="yCu-ez-cep" id="Xz6-BE-fxe"/>
                                             <outlet property="usernameLabel" destination="CAW-6A-uAn" id="EeF-Ye-8Hf"/>

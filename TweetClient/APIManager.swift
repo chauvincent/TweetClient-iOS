@@ -98,4 +98,20 @@ class APIManager
             }
         })
     }
+    
+    /*  Download Image   */
+    func downloadImage(_ imgUrl: String, completionHandler: @escaping (_ tweetImage: UIImage) -> Void )
+    {
+        OperationQueue().addOperation {
+            guard let url = URL(string: imgUrl) else { return }
+            guard let imgData = try? Data(contentsOf: url) else { return }
+            guard let image = UIImage(data: imgData) else { return }
+            OperationQueue.main.addOperation({
+                completionHandler(image)
+            })
+        }
+    }
+    
+    
+    
 }

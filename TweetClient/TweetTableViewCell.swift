@@ -10,13 +10,14 @@ import UIKit
 
 class TweetTableViewCell: UITableViewCell
 {
-
-    @IBOutlet weak var userImageView: UIImageView!
+    
+    @IBOutlet weak var userImageView: CircleImageView!
     @IBOutlet weak var userTextLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
     
-    var currentTweet: Tweet! {
+    var currentTweet: Tweet!
+    {
         didSet {
             self.userTextLabel.text = self.currentTweet.text
             self.usernameLabel.text = self.currentTweet.user.username
