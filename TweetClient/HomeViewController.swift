@@ -17,7 +17,7 @@ class HomeViewController: UIViewController
     
     var allTweets: [Tweet]? {
         didSet {
-            // Reload table view data
+            self.feedTableView.reloadData()
             print("did set tweets")
         }
     }
@@ -25,10 +25,15 @@ class HomeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         setupView()
-        updateWithTestJSON()
         APIManager.sharedInstance.loginFromSocial { (success) in
-            print("successful login")
+           APIManager.sharedInstance.GETUserTimeline(completionHandler: { (success, tweets) in
+                if (success)
+                {
+                    self.allTweets = tweets
+                }
+            })
         }
     }
     
@@ -41,6 +46,7 @@ class HomeViewController: UIViewController
     {
         super.didReceiveMemoryWarning()
     }
+    
     func setupView()
     {
         self.navigationItem.title = "Home"
@@ -48,12 +54,11 @@ class HomeViewController: UIViewController
         self.feedTableView.dataSource = self
     }
     
-    
     func updateWithTestJSON()
     {
         let testData = JSONParserUtil.loadTestJSON()
         JSONParserUtil.parseJSON(data: testData!) { (success, tweets) in
-            
+            print(success)
         }
     }
 
@@ -64,7 +69,9 @@ extension TableViewDataSource: UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 1
+        guard let count = allTweets?.count
+            else { return 0 }
+        return count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int
@@ -74,7 +81,8 @@ extension TableViewDataSource: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath)
+        let cell: TweetTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetTableViewCell
+        cell.currentTweet = self.allTweets?[indexPath.row]
         return cell
     }
 

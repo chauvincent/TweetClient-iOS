@@ -21,12 +21,12 @@ class JSONParserUtil
     }
     
     /*  Parse JSON from an NSData object */
-    class func parseJSON(data: NSData, completionHandler: @escaping (_ success: Bool, _ allTweets:[Tweet]?) -> Void)
+    class func parseJSON(data: Data, completionHandler: @escaping (_ success: Bool, _ allTweets:[Tweet]?) -> Void)
     {
         var tweets: [Tweet] = []
         
         do {
-            let jsonData = try JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: AnyObject]]
+            let jsonData = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: AnyObject]]
             
             for tweetDict in jsonData!
             {
@@ -42,16 +42,16 @@ class JSONParserUtil
         completionHandler(false, nil)
     }
 
-    /*  Load Test JSON Data to parse  */
-    class func loadTestJSON() -> NSData?
+    /*  Testing Purposes: Load testing.json Data to parse  */
+    class func loadTestJSON() -> Data?
     {
-        var jsonData: NSData?
+        var jsonData: Data?
         
         if let path = Bundle.main.path(forResource: "testing", ofType: "json")
         {
             do {
                 let data = try NSData(contentsOfFile: path, options: .mappedIfSafe)
-                jsonData = data
+                jsonData = data as Data
             
             } catch let error as NSError {
                 print(error.localizedDescription)
@@ -61,7 +61,7 @@ class JSONParserUtil
         return (jsonData != nil) ? jsonData : nil
     }
     
-    /*  Parse into Tweet and User Model Helper  */
+    /*  parseJSON() Helper: Parse into Tweet and User Model */
     class func parseTweet(tweetDict: [String : AnyObject]) throws -> Tweet?
     {
         guard let uid = tweetDict[kTweetUID] as? String

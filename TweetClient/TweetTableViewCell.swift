@@ -16,17 +16,23 @@ class TweetTableViewCell: UITableViewCell
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
     
+    var currentTweet: Tweet! {
+        didSet {
+            self.userTextLabel.text = self.currentTweet.text
+            self.usernameLabel.text = self.currentTweet.user.username
+            self.userLocationLabel.text = self.currentTweet.user.location
+        }
+    }
+    
     override func awakeFromNib()
     {
         super.awakeFromNib()
-        self.userTextLabel.text = "testing"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool)
     {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     
     
