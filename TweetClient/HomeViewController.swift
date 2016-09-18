@@ -27,7 +27,9 @@ class HomeViewController: UIViewController
         super.viewDidLoad()
         setupView()
         updateWithTestJSON()
-        APIManager.sharedInstance.loginFromSocial()
+        APIManager.sharedInstance.loginFromSocial { (success) in
+            print("successful login")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool)
