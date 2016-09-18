@@ -28,10 +28,9 @@ class JSONParserUtil
         do {
             let jsonData = try JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: AnyObject]]
             
-            for tweetDict in jsonData! {
-                
+            for tweetDict in jsonData!
+            {
                 tweets.append(try parseTweet(tweetDict: tweetDict)!)
-                
             }
             
             completionHandler(true, tweets)
@@ -83,6 +82,4 @@ class JSONParserUtil
         
         return Tweet(text: text, uid: uid, user: userInfo)
     }
-    
-
 }

@@ -10,7 +10,9 @@ import UIKit
 
 class HomeViewController: UIViewController
 {
+    
     @IBOutlet weak var feedTableView: UITableView!
+    
     var allTweets: [Tweet]? {
         didSet {
             // Reload table view data
