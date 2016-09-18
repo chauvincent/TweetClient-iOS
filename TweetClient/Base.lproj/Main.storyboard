@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,6 +37,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco, Ca" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sln-d4-K8Z">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="127" id="W0e-EB-hZX"/>
+                                                        <constraint firstAttribute="height" constant="20" id="bU9-J7-hkm"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -47,8 +52,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Testing User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAW-6A-uAn">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="16k-s5-hVW"/>
-                                                        <constraint firstAttribute="width" constant="154" id="6Lb-5A-BUw"/>
+                                                        <constraint firstAttribute="width" constant="114" id="A2O-aE-3Jc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -56,19 +60,17 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Sln-d4-K8Z" firstAttribute="leading" secondItem="CAW-6A-uAn" secondAttribute="trailing" constant="48" id="0WB-6V-Gyw"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="yCu-ez-cep" secondAttribute="trailing" constant="13" id="7gY-qA-8Qf"/>
                                                 <constraint firstItem="Qpc-xP-jkC" firstAttribute="bottom" secondItem="yCu-ez-cep" secondAttribute="bottom" id="E04-UE-jqt"/>
+                                                <constraint firstItem="CAW-6A-uAn" firstAttribute="top" secondItem="yCu-ez-cep" secondAttribute="bottom" constant="6" id="EAq-cL-GQa"/>
                                                 <constraint firstItem="Qpc-xP-jkC" firstAttribute="top" secondItem="EQP-YI-Phr" secondAttribute="topMargin" id="QRL-Tq-DNg"/>
-                                                <constraint firstItem="CAW-6A-uAn" firstAttribute="leading" secondItem="EQP-YI-Phr" secondAttribute="leadingMargin" constant="5" id="UBQ-5r-39c"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Sln-d4-K8Z" secondAttribute="trailing" constant="-2" id="XTV-JM-gZN"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="CAW-6A-uAn" secondAttribute="bottom" constant="-7" id="ZXt-0i-Ejk"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Sln-d4-K8Z" secondAttribute="bottom" constant="-5" id="cgr-na-U0Q"/>
+                                                <constraint firstItem="CAW-6A-uAn" firstAttribute="firstBaseline" secondItem="Sln-d4-K8Z" secondAttribute="firstBaseline" id="ZG1-gz-ER0"/>
+                                                <constraint firstAttribute="trailing" secondItem="Sln-d4-K8Z" secondAttribute="trailing" constant="6" id="cap-Jr-x09"/>
+                                                <constraint firstItem="CAW-6A-uAn" firstAttribute="baseline" secondItem="Sln-d4-K8Z" secondAttribute="baseline" id="fck-Wf-Hc0"/>
                                                 <constraint firstItem="Qpc-xP-jkC" firstAttribute="leading" secondItem="EQP-YI-Phr" secondAttribute="leadingMargin" constant="7" id="hc4-hm-ULx"/>
                                                 <constraint firstItem="Qpc-xP-jkC" firstAttribute="top" secondItem="yCu-ez-cep" secondAttribute="top" id="jh4-r2-QD0"/>
                                                 <constraint firstItem="yCu-ez-cep" firstAttribute="leading" secondItem="Qpc-xP-jkC" secondAttribute="trailing" constant="23" id="kRK-N1-Ynn"/>
-                                                <constraint firstItem="Sln-d4-K8Z" firstAttribute="top" secondItem="yCu-ez-cep" secondAttribute="bottom" constant="4" id="tv9-6h-snD"/>
-                                                <constraint firstItem="CAW-6A-uAn" firstAttribute="top" secondItem="Qpc-xP-jkC" secondAttribute="bottom" constant="6" id="xt9-tp-YZT"/>
+                                                <constraint firstItem="CAW-6A-uAn" firstAttribute="leading" secondItem="EQP-YI-Phr" secondAttribute="leadingMargin" constant="5" id="qto-Bx-5pa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

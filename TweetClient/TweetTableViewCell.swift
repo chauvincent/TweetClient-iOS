@@ -17,7 +17,7 @@ class TweetTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.userTextLabel.text = "testing"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,5 +25,6 @@ class TweetTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    
 }
