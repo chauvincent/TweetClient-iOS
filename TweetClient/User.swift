@@ -32,7 +32,7 @@ class User
     init(username: String, url: String, location: String)
     {
         self._username = username
-        self._imgURL = imgURL
+        self._imgURL = url
         self._location = location
     }
     

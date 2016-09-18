@@ -64,6 +64,7 @@ class JSONParserUtil
     /*  parseJSON() Helper: Parse into Tweet and User Model */
     class func parseTweet(tweetDict: [String : AnyObject]) throws -> Tweet?
     {
+        
         guard let uid = tweetDict[kTweetUID] as? String
             else {  throw ParserError.invalidUID }
         

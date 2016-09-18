@@ -15,6 +15,8 @@ class HomeViewController: UIViewController
     
     @IBOutlet weak var feedTableView: UITableView!
     
+    static var imageCache = NSCache<NSString, UIImage>()
+    
     var allTweets: [Tweet]? {
         didSet {
             self.feedTableView.reloadData()
@@ -25,7 +27,7 @@ class HomeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+    
         setupView()
         APIManager.sharedInstance.loginFromSocial { (success) in
            APIManager.sharedInstance.GETUserTimeline(completionHandler: { (success, tweets) in
