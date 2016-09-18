@@ -12,21 +12,28 @@ class User
 {
     private var _username: String!
     private var _imgURL: String!
+    private var _location: String!
     
-    var username : String!
+    var username: String!
     {
         return _username
     }
     
-    var imgURL : String!
+    var imgURL: String!
     {
         return _imgURL
     }
     
-    init(username: String, url: String)
+    var location: String!
+    {
+        return _location
+    }
+    
+    init(username: String, url: String, location: String)
     {
         self._username = username
         self._imgURL = imgURL
+        self._location = location
     }
     
     

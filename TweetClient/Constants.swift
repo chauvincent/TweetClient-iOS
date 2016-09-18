@@ -9,7 +9,11 @@
 import UIKit
 
 // MARK: Tweet Constants for tweet keys
-let kTweetUser = "user"
-let kTweetText = "text"
+let kTweetText          = "text"
+let kTweetUID           = "id_str"
 
 // MARK: Tweet Contants for user keys
+let kTweetUser          = "user"
+let kTweetUserImageURL  = "profile_image_url"
+let kTweetUserLocation  = "location"
+let kTweetUserName      = "name"

@@ -15,6 +15,9 @@ class JSONParserUtil
     {
         case invalidUID
         case invalidText
+        case invalidUsername
+        case invalidUserImgURL
+        case invalidUserLocation
     }
     
     /*  Parse JSON from an NSData object */
@@ -27,17 +30,11 @@ class JSONParserUtil
             
             for tweetDict in jsonData! {
                 
-                guard let uid = tweetDict["user"]?["name"] as? String
-                    else {  throw ParserError.invalidUID }
-
-                guard let text = tweetDict["text"] as? String
-                    else {  throw ParserError.invalidText }
+                let tweet = try parseTweet(tweetDict: tweetDict)
+                tweets.append(tweet!)
                 
-                print(uid)
-                print(text)
-            
-                let tweet = Tweet(text: text, uid: uid)
-                tweets.append(tweet)
+                let user = try parseUser(tweetDict: tweetDict)
+                
             }
             
             completionHandler(true, tweets)
@@ -45,6 +42,7 @@ class JSONParserUtil
         } catch {
             print("error serializing JSON: \(error)")
         }
+        
         completionHandler(false, nil)
     }
 
@@ -52,6 +50,7 @@ class JSONParserUtil
     class func loadTestJSON() -> NSData?
     {
         var jsonData: NSData?
+        
         if let path = Bundle.main.path(forResource: "testing", ofType: "json")
         {
             do {
@@ -64,5 +63,32 @@ class JSONParserUtil
         }
     
         return (jsonData != nil) ? jsonData : nil
+    }
+    
+    /*  ParseJSON Helper: Tweet Information */
+    class func parseTweet(tweetDict: [String : AnyObject]) throws -> Tweet?
+    {
+        guard let uid = tweetDict[kTweetUID] as? String
+            else {  throw ParserError.invalidUID }
+        
+        guard let text = tweetDict[kTweetText] as? String
+            else {  throw ParserError.invalidText }
+        
+        return Tweet(text: text, uid: uid)
+    }
+    
+    /*  ParseJSON Helper: User Information */
+    class func parseUser(tweetDict: [String : AnyObject]) throws -> User?
+    {
+        guard let userName = tweetDict[kTweetUser]?[kTweetUserName] as? String
+            else { throw ParserError.invalidUsername }
+        
+        guard let imgUrl = tweetDict[kTweetUser]?[kTweetUserImageURL] as? String
+            else { throw ParserError.invalidUserLocation }
+        
+        guard let location = tweetDict[kTweetUser]?[kTweetUserLocation] as? String
+            else { throw ParserError.invalidUserLocation }
+        
+        return User(username: userName, url: imgUrl, location: location)
     }
 }
