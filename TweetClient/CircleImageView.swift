@@ -16,6 +16,5 @@ class CircleImageView: UIImageView
         self.layer.cornerRadius = self.frame.size.width / 2.0
         self.layer.borderWidth = 0.1
         self.layer.borderColor = UIColor.black.cgColor
-        self.clipsToBounds = true;
     }
 }
