@@ -33,10 +33,17 @@ class APIManager
             let allAccounts = store.accounts(with: accountType)
             self.currentAccount = allAccounts?.last as? ACAccount
             
-            self.validateAccount(account: self.currentAccount!, completionHandler: { (complete) in
-                let success = (complete) ? true : false
-                completionHandler(success)
-            })
+            if (self.currentAccount != nil)
+            {
+                self.validateAccount(account: self.currentAccount!, completionHandler: { (complete) in
+                    let success = (complete) ? true : false
+                    completionHandler(success)
+                })
+            }
+            else
+            {
+                completionHandler(false)
+            }
         }
     }
     

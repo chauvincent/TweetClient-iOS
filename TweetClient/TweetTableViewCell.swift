@@ -19,31 +19,25 @@ class TweetTableViewCell: UITableViewCell
     var currentTweet: Tweet!
     {
         didSet {
+            
             self.userTextLabel.text = self.currentTweet.text
             self.usernameLabel.text = self.currentTweet.user.username
             self.userLocationLabel.text = self.currentTweet.user.location
-            
 
             if let imgURL = self.currentTweet.user.imgURL
             {
                 let url: NSString = (imgURL as NSString)
                 if let image = HomeViewController.imageCache.object(forKey: url)
                 {
-                    print("in cache")
                     self.userImageView.image = image
                 }
                 else
                 {
-                    print("not in chace")
                     APIManager.sharedInstance.downloadImage(imgURL, completionHandler: { (image) in
                         self.userImageView.image = image
                         HomeViewController.imageCache.setObject(image, forKey: url)
                     })
                 }
-            }
-            else
-            {
-                print("bad image url")
             }
         }
     }

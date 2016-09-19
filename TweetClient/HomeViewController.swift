@@ -27,16 +27,8 @@ class HomeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-    
-        setupView()
-        APIManager.sharedInstance.loginFromSocial { (success) in
-           APIManager.sharedInstance.GETUserTimeline(completionHandler: { (success, tweets) in
-                if (success)
-                {
-                    self.allTweets = tweets
-                }
-            })
-        }
+        self.setupView()
+        self.setupUser()
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -56,7 +48,29 @@ class HomeViewController: UIViewController
         self.feedTableView.dataSource = self
     }
     
-    func updateWithTestJSON()
+    func setupUser()
+    {
+        APIManager.sharedInstance.loginFromSocial { (success) in
+            if (success)
+            {
+                APIManager.sharedInstance.GETUserTimeline(completionHandler: { (success, tweets) in
+                    if (success)
+                    {
+                        self.allTweets = tweets
+                    }
+                })
+            }
+            else
+            {
+                let alertController = UIAlertController(title: "Error", message: "Please add a twitter account in your settings tab", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "dismiss", style: .cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: false, completion: nil)
+            }
+        }
+    }
+    func loadTestingJSON()
     {
         let testData = JSONParserUtil.loadTestJSON()
         JSONParserUtil.parseJSON(data: testData!) { (success, tweets) in
