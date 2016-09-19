@@ -3,7 +3,7 @@ Welcome to TweetClient!
 
 
 Hey! This is just a for-fun project I did to dive into the changes in Swift 3.0.
-There are many syntax changes as well as with the closures needing to be explicitly written as escaping. NSCache is also being replaced by Cache soon? I have also noticed the changes in guard-let syntax, if-lets error handling, as well as having minor syntax changes in completion handlers/blocks. I also really enjoy the shortening of many verbose methods in Swift 3.0.
+There are many syntax changes as well as with the closures needing to be explicitly written as escaping. NSCache is also being replaced by Cache soon? I have also noticed the changes in guard-let syntax, if-lets error handling, as well as having minor syntax changes in completion handlers/blocks. I also really enjoy the shortening of many verbose methods prior to Swift 3.0.
 
 I am mostly just experimenting with the Social Framework and Twitter API. Also to change things up a bit, This project I am using NSOperationQueues, since before I have mostly only used GCD queues in my other projects.
 Furthermore, I am also starting to write my datasource and delegates using class extensions for better code readability.
